@@ -1,0 +1,8 @@
+<div class="container">
+  <ul class="list-decoration-none">
+    <% @lists.each do |list| %>
+      <li><%= link_to "#{list.name}", list_path(list) %></li>
+    <% end %>
+  </ul>
+  <%= link_to "Create a New List", new_list_path %>
+</div>

@@ -1,0 +1,17 @@
+<div class="container">
+  <h1>Hey!</h1>
+
+  <%= @list.name %>
+  <h1>Bookmarked Movies</h1>
+
+  <% if @bookmarks %>
+  <% @bookmarks.each do |bookmark| %>
+    <%= bookmark.movie.title %>
+    <%= link_to "Remove Movie", list_path(bookmark), data: { turbo_method: :delete, turbo_confirm: "Are you sure?" } %>
+  <% end %>
+  <% else %>
+    <p>No movies on this list!</p>
+  <% end %>
+  <%= link_to "Add a New Movie", new_list_bookmark_path(@list) %>
+  <%= link_to "Back to Home", lists_path %>
+</div>
