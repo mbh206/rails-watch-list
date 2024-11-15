@@ -1,8 +1,10 @@
 <div class="container">
-  <ul class="list-decoration-none">
+  <ul class="list-decoration-none cards">
     <% @lists.each do |list| %>
-      <li><%= link_to "#{list.name}", list_path(list) %></li>
+      <div class="card-category" style="background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.3)), url(<%= list.photo.attached? ? cl_image_path(list.photo.key) : image_url("https://loremflickr.com/500/240/movies,adventure") %>)">
+        <li class="card-list-item"><%= list.name %></li>
+        <%= link_to "", list_path(list), class: "card-link-cover" %>
+      </div>
     <% end %>
   </ul>
-  <%= link_to "Create a New List", new_list_path %>
 </div>
