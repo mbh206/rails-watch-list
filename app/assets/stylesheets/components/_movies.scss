@@ -1,0 +1,15 @@
+.movie-list {
+  display: flex;
+  flex-direction: column;
+  gap:10px;
+}
+
+.movie-list-card {
+  padding: 10px 20px;
+  border-top: 1px solid #d9d9d9;
+}
+
+.movie-list-card:last-child {
+  padding: 10px 20px;
+  border-bottom: 1px solid #d9d9d9;
+}

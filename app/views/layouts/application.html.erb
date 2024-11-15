@@ -11,23 +11,7 @@
   </head>
 
   <body>
-    <div class="navbar navbar-light navbar-lewagon">
-      <div class="container-fluid">
-        <%= link_to "/", class: "navbar-brand" do %>
-          <%= image_tag "logo.png" %>
-        <% end %>
-        <%= link_to "/", class: "navbar-brand" do %>
-          <h1 class=" py-2">The Ultimated Movie Lister</h1>
-        <% end %>
-        <div>
-          <%= link_to new_list_path,  class: "d-flex gap-2 align-bottom" do %>
-            <p class="no-text-decoration">+</p>
-            <i class="fa-solid fa-film btn btn-outline-info"></i>
-          <% end %>
-        </div>
-        </div>
-      </div>
-    </div>
+    <%= render 'components/navbar' %>
     <%= yield %>
   </body>
 </html>

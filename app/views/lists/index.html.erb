@@ -1,7 +1,8 @@
 <div class="container">
+  <h1 class="text-center">Your Lists</h1>
   <ul class="list-decoration-none cards">
     <% @lists.each do |list| %>
-      <div class="card-category" style="background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.3)), url(<%= list.photo.attached? ? cl_image_path(list.photo.key) : image_url("https://loremflickr.com/500/240/movies,adventure") %>)">
+      <div class="card-category" style="background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.3)), url(<%= list.photo.attached? ? cl_image_path(list.photo.key) : image_url("https://loremflickr.com/500/240/movies,#{list.name}") %>)">
         <li class="card-list-item"><%= list.name %></li>
         <%= link_to "", list_path(list), class: "card-link-cover" %>
       </div>

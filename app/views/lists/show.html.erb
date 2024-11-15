@@ -1,17 +1,22 @@
 <div class="container">
-  <h1>Hey!</h1>
-
-  <%= @list.name %>
-  <h1>Bookmarked Movies</h1>
-
+  <h1>Bookmarked Movies In Your <%= @list.name %> List</h1>
   <% if @list.bookmarks.any? %>
-    <% @list.bookmarks.each do |bookmark| %>
-      <%= bookmark.movie.title %>
-      <%= link_to "Remove Movie", bookmark_path(bookmark), data: { turbo_method: :delete, turbo_confirm: "Are you sure?" } %>
-    <% end %>
+    <div class="movie-list">
+      <% @list.bookmarks.each do |bookmark| %>
+        <div class="movie-list-card">
+          <div>
+            <%= bookmark.movie.title %>
+          </div>
+          <%= link_to "Remove Movie", bookmark_path(bookmark), data: { turbo_method: :delete, turbo_confirm: "Are you sure?" } %>
+        </div>
+      <% end %>
+    </div>
   <% else %>
-    <p>No movies on this list!</p>
+    <p class="movie-list-card">No movies on this list!</p>
   <% end %>
-  <%= link_to "Add a New Movie", new_list_bookmark_path(@list) %>
-  <%= link_to "Back to Home", lists_path %>
+  <div class="card-list-item btn btn-info btn-lg my-3">
+    <%= link_to new_list_bookmark_path(@list) do %>
+      <i class="fa-solid fa-ticket"></i><span> Add Movie</span>
+    <% end %>
+  </div>
 </div>
