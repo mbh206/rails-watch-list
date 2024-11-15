@@ -1,7 +1,7 @@
 class BookmarksController < ApplicationController
   def new
-    @movies = Movie.all
     @list = List.find(params[:list_id])
+    @movies = Movie.where.not(id: @list.movies).order(title: :asc)
     @bookmark = Bookmark.new
   end
 
@@ -12,6 +12,7 @@ class BookmarksController < ApplicationController
     if @bookmark.save
       redirect_to list_path(@list)
     else
+      @movies = Movie.where.not(id: @list.movies).order(title: :asc)
       render 'new', status: :unprocessable_entity
     end
   end
